@@ -1,94 +1,37 @@
-# GymQuest — JavaFX Application
+# GymQuest: Level Up Your Fitness Journey
+**Course:** CSIT228 - CAPSTONE PROJECT 2026  
+**Group Name:** MYLABS
 
-A full-featured fitness app built with JavaFX, converted from a React/TypeScript implementation.
+# Group Members
+- Abaincia, Joel Constantine
+- Buzarang, Christian 
+- Ligaray, Ericka Fatima Reign 
+- Matedios, Benedict Reynz 
+- Yee, Marc Nelson 
 
-## Architecture
+# Project Description
+GymQuest is a Java-based desktop application designed to solve the problem of low member engagement and manual administrative overhead in traditional fitness centers. While most systems focus solely on record-keeping, GymQuest bridges the gap between management and motivation.
 
-```
-src/main/java/com/gymquest/
-├── GymQuestApp.java              # Entry point (extends Application)
-├── model/
-│   ├── AppState.java             # Singleton global state (JavaFX Properties)
-│   ├── DataStore.java            # Sample data (workouts, users, posts, sessions)
-│   ├── Exercise.java
-│   ├── Workout.java
-│   ├── TrainerSession.java
-│   ├── User.java
-│   └── Post.java
-├── controller/
-│   └── MainController.java       # Navigation orchestrator
-├── view/
-│   ├── LoginView.java            # Login / Register screen
-│   ├── HeaderView.java           # Top navigation bar
-│   ├── SideMenuView.java         # Left sidebar navigation
-│   ├── DashboardView.java        # Member home dashboard
-│   ├── WorkoutsView.java         # All workouts grid
-│   ├── WorkoutCardView.java      # Reusable workout card widget
-│   ├── WorkoutDetailView.java    # Exercise list + complete button
-│   ├── CustomWorkoutCreatorView.java  # Build custom workout
-│   ├── ExercisePickerDialog.java      # Exercise library picker
-│   ├── BookingView.java          # Calendar + trainer booking
-│   ├── CommunityView.java        # Social feed with reactions
-│   ├── ProfileView.java          # Profile + badges/achievements
-│   ├── AdminView.java            # Admin member/trainer management
-│   ├── TrainerView.java          # Trainer schedule management
-│   └── NotificationsDialog.java  # Notifications popup
-└── util/
-    └── UIHelper.java             # Reusable styled components
-```
+The system provides a centralized platform for trainers and admins to manage operations, but its primary goal is to enhance the member experience through a Gamification Engine. By tracking attendance and workout consistency, it is transforming a standard gym membership into an interactive fitness journey.
 
-## Prerequisites
+# Proposed Features
+- **Secure Authentication:** Role-based access control for Admins, Trainers, and Members to ensure data security and personalized views.
+- **Member Directory:** Full CRUD (Create, Read, Update, Delete) functionality with advanced filtering for Active, Expired, and Pending memberships.
+- **Session Booking:** An interactive scheduling system for members to book and manage personal training sessions.
+- **Financial Tracking:** Secure recording of member payments and the generation of basic revenue and financial reports.
+- **Dashboard Analytics:** A visual summary panel providing real-time data on gym health, including total members, daily attendance, and revenue trends.
 
-- **Java 21+** (LTS recommended)
-- **Maven 3.8+**
-- JavaFX 21 (pulled automatically by Maven)
+# Planned Technologies
+- **Language:** Java 21+
+- **GUI Framework:** JavaFX (utilizing FXML and SceneBuilder)
+- **Database:** SQLite (for portability) or MySQL
+- **Build Tool:** Maven/Gradle
+- **Version Control:** Git/GitHub
 
-## Build & Run
-
-### Using Maven (recommended)
-```bash
-cd gymquest
-mvn javafx:run
-```
-
-### Build a fat JAR
-```bash
-mvn package
-java --module-path /path/to/javafx-sdk/lib \
-     --add-modules javafx.controls,javafx.fxml \
-     -jar target/gymquest-1.0-SNAPSHOT.jar
-```
-
-### Using IntelliJ IDEA
-1. Open the project (File → Open → select the `gymquest` folder)
-2. Maven auto-imports dependencies
-3. Run `GymQuestApp` main class
-
-### Using VS Code
-1. Install the "Extension Pack for Java"
-2. Open the `gymquest` folder
-3. Run `GymQuestApp.java`
-
-## Features
-
-| Feature | Description |
-|---|---|
-| **Login / Register** | Member, Trainer, Admin roles |
-| **Dashboard** | Streak widget, completed workouts, motivational card |
-| **Workouts** | Browse all workouts, difficulty badges, lock system |
-| **Workout Detail** | Exercise list with sets/reps, complete button |
-| **Custom Workouts** | Build your own with the exercise picker library |
-| **Calendar Booking** | Month view, select date, pick trainer + time slot |
-| **Community Feed** | Milestone posts with ❤️ reaction toggle |
-| **Profile** | Stats + 9 achievement badges with progress bars |
-| **Admin Dashboard** | Member/trainer management with search |
-| **Trainer Dashboard** | Schedule management, add new slots |
-| **Notifications** | Popup panel with unread indicators |
-
-## Design Notes
-
-- Colors mirror the React original: `#3b82f6` (blue), `#d97706` (amber), `#1e3a5f` (dark navy)
-- `AppState` uses JavaFX `Property` objects for reactive updates
-- `UIHelper` centralizes all styled component factories
-- Navigation via `MainController.navigateTo(page)` — no FXML required
-- All data lives in `DataStore` singleton (replace with DB/API calls as needed)
+# Evaluation Criteria Mapping
+- **OOP:** Implementation of Inheritance (User base class with Member and Trainer subclasses) and Encapsulation to protect sensitive member and financial data.
+- **GUI:** Responsive layout utilizing JavaFX BorderPane, TableViews for data management, and custom Dialogs for user interactions.
+- **UML:** Use Case and Class Diagrams are included to map the relationships between Members, Membership Plans, Trainers, and Transactions.
+- **Design Pattern:**
+  - **Singleton:** Ensuring a centralized, thread-safe Database Connection.
+- **Multithreading:** Implementation of background tasks for loading large datasets and generating reports to ensure a smooth, non-blocking UI experience.
